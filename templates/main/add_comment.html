@@ -1,0 +1,21 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+<head>
+<title>
+  {% block title %}
+    Home | Add Comment
+  {% endblock %}
+</title>
+</head>
+
+{% block content %}
+
+<h2>Add Comment</h2>
+<!-- The enctype="multipart/form-data" ... It Works With Uploaded Files -->
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input class="btn btn-success" type="submit" value="Comment">
+</form>
+
+{% endblock %}

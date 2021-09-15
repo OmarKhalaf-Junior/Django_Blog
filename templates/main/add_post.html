@@ -1,0 +1,21 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+<head>
+<title>
+  {% block title %}
+    Home | Add Post
+  {% endblock %}
+</title>
+</head>
+
+{% block content %}
+
+<h2>Add Post</h2>
+<!-- The enctype="multipart/form-data" ... It Works With Uploaded Files -->
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input class="btn btn-success" type="submit" value="Post">
+</form>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+<head>
+<title>
+  {% block title %}
+    Home | Delete Post
+  {% endblock %}
+</title>
+</head>
+
+{% block content %}
+
+      <h2 class="mb-3">Delete Post</h2>
+      <form method="post">
+        {% csrf_token %}
+        <h3>Are You Sure You Want To Delete {{post.title}} ?..</h3>
+        <input class="btn btn-danger mt-5" type="submit" value="Delete">
+      </form>
+
+{% endblock %}

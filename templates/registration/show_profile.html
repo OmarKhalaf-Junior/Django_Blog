@@ -1,0 +1,19 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+<head>
+  <title>
+    {% block title %}
+      Home | User Profile
+    {% endblock %}
+  </title>
+</head>
+
+{% block content %}
+
+{{profile.user.get_full_name}}<br/>
+{{profile.bio}}<br/>
+{{profile.user.email}}<br/>
+{{profile.location}}<br/>
+{{profile.birth_date}}<br/>
+
+{% endblock content %}

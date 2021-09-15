@@ -1,0 +1,39 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+<head>
+<title>
+  {% block title %}
+    Home | Post Detail
+  {% endblock %}
+</title>
+</head>
+
+{% block content %}
+<!-- {{posts.title}} -->
+
+<div class="card mb-3">
+  <img src="{{post.post_image.url}}" class="card-img-top" style= "height: 400px;">
+  <div class="card-body">
+
+    <!--
+    <h5 class="card-title mb-3">Current User: {{user.email}}</h5>
+    <h5 class="card-title mb-3">Post Author: {{post.author.email}}</h5>
+  -->
+
+    <h5 class="card-title mb-3">{{post.title}} | {{post.created_at}}</h5>
+    <h5 class="card-title mb-2">BY: {{user}}</h5>
+    <a href="{% url 'category' post.category.slug %}" class="card-title">{{post.category}}</a>  <!-- post.category.id === Get The ID Of The Category Model Specifically ==! post.category.id Which Means Get The ID Of The Article Model -->
+    <!-- Just Use Safe Filter To Add Html Markups And Arrange Our Content -->
+    <p class="card-text mt-3">{{post.content|safe}}</p>
+    <p class="card-text"><small class="text-muted">Last updated {{post.updated_at}}</small></p>
+  </div>
+</div>
+
+
+<!-- Delete & Update Buttons -->
+<div class="d-grid gap-2 d-md-block mb-5">
+      <a href="{% url 'delete' post.slug %}" class="btn btn-danger" type="button">Delete</a>
+      <a href="{% url 'update' post.slug %}" class="btn btn-primary" type="button">Update</a>
+</div>
+
+{% endblock %}

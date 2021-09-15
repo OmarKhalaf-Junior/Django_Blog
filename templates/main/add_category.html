@@ -1,0 +1,20 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+<head>
+<title>
+  {% block title %}
+    Home | Add Category
+  {% endblock %}
+</title>
+</head>
+
+{% block content %}
+
+    <h2>Add Category</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input class="btn btn-success" type="submit" value="Add">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+<head>
+<title>
+  {% block title %}
+    Home | Update Profile
+  {% endblock %}
+</title>
+</head>
+
+{% block content %}
+
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+</form>
+
+{% endblock content %}
